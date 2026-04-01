@@ -1,5 +1,6 @@
 import { Language, TranslationKeys } from '../translations'
 import LanguageToggle from './LanguageToggle'
+import Logo from './Logo'
 
 interface Props {
   t: TranslationKeys
@@ -13,14 +14,9 @@ export default function Header({ t, language, onLanguageChange }: Props) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center gap-3">
-            <div className="flex items-center">
-              <div className="w-8 h-8 bg-lf-orange rounded-lg flex items-center justify-center">
-                <span className="text-white font-extrabold text-sm">LF</span>
-              </div>
-              <span className="ml-2 text-white font-bold text-lg hidden sm:block">Loan Factory</span>
-            </div>
-          </div>
+          <a href="#" className="flex items-center">
+            <Logo variant="light" height={28} />
+          </a>
 
           {/* Language Toggle + CTA */}
           <div className="flex items-center gap-3">

@@ -1,4 +1,5 @@
 import { TranslationKeys } from '../translations'
+import Logo from './Logo'
 
 interface Props {
   t: TranslationKeys
@@ -11,11 +12,8 @@ export default function Footer({ t }: Props) {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-2 mb-3">
-              <div className="w-8 h-8 bg-lf-orange rounded-lg flex items-center justify-center">
-                <span className="text-white font-extrabold text-sm">LF</span>
-              </div>
-              <span className="text-white font-bold text-lg">{t.footerBrand}</span>
+            <div className="mb-3">
+              <Logo variant="light" height={24} />
             </div>
             <p className="text-sm">{t.footerNmls}</p>
             <p className="text-sm">{t.footerEqual}</p>

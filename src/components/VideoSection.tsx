@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { TranslationKeys } from '../translations'
 
 interface Props {
@@ -5,9 +6,19 @@ interface Props {
 }
 
 export default function VideoSection({ t }: Props) {
-  // HeyGen video URLs will be added here per language
-  // For now, showing placeholder
-  const videoUrl = '' // Will be replaced with actual HeyGen embed URL
+  const [isPlaying, setIsPlaying] = useState(false)
+
+  // Video path served from public/videos/
+  const videoSrc = '/videos/vip-dinner-invitation.mp4'
+
+  const handlePlay = () => {
+    setIsPlaying(true)
+    // Auto-play the video element after state update
+    setTimeout(() => {
+      const video = document.querySelector('#invitation-video') as HTMLVideoElement
+      if (video) video.play()
+    }, 100)
+  }
 
   return (
     <section className="py-20 bg-lf-navy relative overflow-hidden">
@@ -22,23 +33,36 @@ export default function VideoSection({ t }: Props) {
         <div className="w-20 h-1 bg-lf-orange mx-auto mb-12 rounded-full" />
 
         <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-lf-charcoal aspect-video">
-          {videoUrl ? (
-            <iframe
-              src={videoUrl}
+          {isPlaying ? (
+            <video
+              id="invitation-video"
+              controls
               className="absolute inset-0 w-full h-full"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              title="VIP Afterparty Invitation Video"
-            />
+              src={videoSrc}
+            >
+              Your browser does not support the video tag.
+            </video>
           ) : (
-            <div className="absolute inset-0 flex flex-col items-center justify-center p-8">
-              {/* Play button placeholder */}
-              <div className="w-20 h-20 bg-lf-orange/20 rounded-full flex items-center justify-center mb-6 border-2 border-lf-orange/40">
-                <svg className="w-10 h-10 text-lf-orange ml-1" fill="currentColor" viewBox="0 0 24 24">
+            <div
+              className="absolute inset-0 flex flex-col items-center justify-center p-8 cursor-pointer group"
+              onClick={handlePlay}
+            >
+              {/* Video poster / thumbnail overlay */}
+              <video
+                muted
+                className="absolute inset-0 w-full h-full object-cover opacity-40"
+                src={videoSrc}
+                preload="metadata"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-lf-navy/80 to-transparent" />
+
+              {/* Play button */}
+              <div className="relative z-10 w-20 h-20 bg-lf-orange/90 rounded-full flex items-center justify-center mb-6 border-2 border-white/20 shadow-2xl shadow-lf-orange/40 transform group-hover:scale-110 transition-all duration-300">
+                <svg className="w-10 h-10 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M8 5v14l11-7z" />
                 </svg>
               </div>
-              <p className="text-white/70 text-center max-w-md leading-relaxed">
+              <p className="relative z-10 text-white/90 text-center max-w-md leading-relaxed font-semibold text-lg drop-shadow-lg">
                 {t.videoFallback}
               </p>
             </div>

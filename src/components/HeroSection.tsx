@@ -7,13 +7,26 @@ interface Props {
 export default function HeroSection({ t }: Props) {
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-lf-navy via-lf-charcoal to-lf-slate" />
+      {/* Video Background */}
+      <div className="absolute inset-0 z-0">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+          poster=""
+        >
+          <source src="/videos/hero-bg.mp4" type="video/mp4" />
+        </video>
+        {/* Semi-transparent overlay on top of video */}
+        <div className="absolute inset-0 bg-gradient-to-br from-lf-navy/85 via-lf-charcoal/80 to-lf-slate/85" />
+      </div>
 
       {/* Decorative elements */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-lf-orange/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-lf-orange/5 rounded-full blur-3xl" />
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-lf-orange/5 rounded-full blur-3xl" />
+      <div className="absolute top-20 left-10 w-72 h-72 bg-lf-orange/10 rounded-full blur-3xl z-[1]" />
+      <div className="absolute bottom-20 right-10 w-96 h-96 bg-lf-orange/5 rounded-full blur-3xl z-[1]" />
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-lf-orange/5 rounded-full blur-3xl z-[1]" />
 
       {/* Content */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20">
@@ -26,12 +39,12 @@ export default function HeroSection({ t }: Props) {
         </div>
 
         {/* Title */}
-        <h1 className="animate-fade-in-up animate-delay-100 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-6">
+        <h1 className="animate-fade-in-up animate-delay-100 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-6 drop-shadow-lg">
           {t.heroTitle}
         </h1>
 
         {/* Subtitle */}
-        <p className="animate-fade-in-up animate-delay-200 text-lg sm:text-xl md:text-2xl text-white/80 max-w-3xl mx-auto mb-8">
+        <p className="animate-fade-in-up animate-delay-200 text-lg sm:text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-8 drop-shadow-md">
           {t.heroSubtitle}
         </p>
 
@@ -68,7 +81,7 @@ export default function HeroSection({ t }: Props) {
       </div>
 
       {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-lf-light to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-lf-light to-transparent z-10" />
     </section>
   )
 }
