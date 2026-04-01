@@ -1,5 +1,4 @@
 import { TranslationKeys } from '../translations'
-import Logo from './Logo'
 
 interface Props {
   t: TranslationKeys
@@ -16,7 +15,11 @@ export default function Footer({ t }: Props) {
           {/* Brand */}
           <div>
             <div className="mb-3">
-              <Logo variant="light" height={24} />
+              <img
+                src="/loanfactory_logo_transparent.png"
+                alt="Loan Factory"
+                className="h-7 w-auto"
+              />
             </div>
             <p className="text-sm">{t.footerNmls}</p>
             <p className="text-sm">{t.footerEqual}</p>

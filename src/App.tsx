@@ -13,12 +13,14 @@ export default function App() {
 
   return (
     <div className="min-h-screen">
+      {/* Page load shine overlay */}
+      <div className="page-shine-overlay" />
       <Header t={t} language={language} onLanguageChange={changeLanguage} />
       <main>
         <HeroSection t={t} />
         <EventDetailsCards t={t} />
         <WhyAttendSection t={t} />
-        <VideoSection t={t} />
+        <VideoSection t={t} language={language} />
         <FormSection t={t} language={language} />
         <CTASection t={t} />
       </main>
