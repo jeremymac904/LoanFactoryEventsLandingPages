@@ -1,4 +1,5 @@
 import { TranslationKeys } from '../translations'
+import { useScrollAnimate } from '../hooks/useScrollAnimate'
 
 interface Props {
   t: TranslationKeys
@@ -29,6 +30,8 @@ const icons = {
 }
 
 export default function EventDetailsCards({ t }: Props) {
+  const { ref, isVisible } = useScrollAnimate(0.1)
+
   const cards = [
     { icon: icons.calendar, label: t.eventDateLabel, value: t.eventDateValue },
     { icon: icons.location, label: t.eventLocationLabel, value: t.eventLocationValue },
@@ -37,17 +40,24 @@ export default function EventDetailsCards({ t }: Props) {
   ]
 
   return (
-    <section className="py-20 bg-lf-light" id="details">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="section-heading text-lf-navy">
+    <section className="py-20 bg-lf-light relative" id="details">
+      {/* Subtle tech grid */}
+      <div className="absolute inset-0 tech-grid opacity-30" />
+
+      <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className={`section-heading text-lf-navy scroll-animate ${isVisible ? 'visible' : ''}`}>
           {t.eventTitle}
         </h2>
-        <div className="w-20 h-1 bg-lf-orange mx-auto mb-12 rounded-full" />
+        <div className={`w-20 h-1 bg-gradient-to-r from-lf-orange to-lf-orange-light mx-auto mb-12 rounded-full scroll-animate ${isVisible ? 'visible' : ''}`} style={{ transitionDelay: '0.1s' }} />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {cards.map((card, i) => (
-            <div key={i} className="card flex gap-5">
-              <div className="flex-shrink-0 w-14 h-14 bg-lf-orange/10 rounded-xl flex items-center justify-center">
+            <div
+              key={i}
+              className={`card card-shine tilt-card flex gap-5 border border-transparent hover:border-lf-orange/20 scroll-animate ${isVisible ? 'visible' : ''}`}
+              style={{ transitionDelay: `${0.15 * (i + 1)}s` }}
+            >
+              <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-lf-orange/15 to-lf-orange/5 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 {card.icon}
               </div>
               <div>
@@ -59,14 +69,14 @@ export default function EventDetailsCards({ t }: Props) {
         </div>
 
         {/* Map Link */}
-        <div className="mt-8 text-center">
+        <div className={`mt-8 text-center scroll-animate ${isVisible ? 'visible' : ''}`} style={{ transitionDelay: '0.7s' }}>
           <a
             href="https://maps.google.com/?q=Galpao+Gaucho+Brazilian+Steakhouse+1830+Main+St+Irvine+CA+92614"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-lf-orange hover:text-lf-orange-dark font-semibold transition-colors"
+            className="inline-flex items-center gap-2 text-lf-orange hover:text-lf-orange-dark font-semibold transition-all duration-300 hover:gap-3 group"
           >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-5 h-5 group-hover:rotate-12 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
             </svg>
             Open in Google Maps

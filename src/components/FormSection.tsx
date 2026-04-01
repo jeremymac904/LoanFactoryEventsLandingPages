@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { TranslationKeys, Language } from '../translations'
+import { useScrollAnimate } from '../hooks/useScrollAnimate'
 
 interface Props {
   t: TranslationKeys
@@ -22,6 +23,7 @@ interface FormData {
 const FORM_ENDPOINT = import.meta.env.VITE_FORM_ENDPOINT || ''
 
 export default function FormSection({ t, language }: Props) {
+  const { ref, isVisible } = useScrollAnimate(0.1)
   const [formData, setFormData] = useState<FormData>({
     fullName: '',
     email: '',
@@ -110,16 +112,19 @@ export default function FormSection({ t, language }: Props) {
   ]
 
   return (
-    <section className="py-20 bg-lf-light" id="rsvp-form">
-      <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="section-heading text-lf-navy">
+    <section className="py-20 bg-lf-light relative" id="rsvp-form">
+      {/* Subtle tech grid */}
+      <div className="absolute inset-0 tech-grid opacity-30" />
+
+      <div ref={ref} className="relative z-10 max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className={`section-heading text-lf-navy scroll-animate ${isVisible ? 'visible' : ''}`}>
           {t.formTitle}
         </h2>
-        <p className="text-center text-lf-gray mb-10 max-w-lg mx-auto">
+        <p className={`text-center text-lf-gray mb-10 max-w-lg mx-auto scroll-animate ${isVisible ? 'visible' : ''}`} style={{ transitionDelay: '0.1s' }}>
           {t.formSubtitle}
         </p>
 
-        <form onSubmit={handleSubmit} className="card space-y-6">
+        <form onSubmit={handleSubmit} className={`card card-shine space-y-6 border border-transparent hover:border-lf-orange/10 scroll-animate-scale ${isVisible ? 'visible' : ''}`} style={{ transitionDelay: '0.2s' }}>
           {/* Full Name */}
           <div>
             <label className="block text-sm font-bold text-lf-navy mb-1">
@@ -273,7 +278,7 @@ export default function FormSection({ t, language }: Props) {
           <button
             type="submit"
             disabled={status === 'submitting'}
-            className="w-full btn-primary text-lg py-4 disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none"
+            className="w-full btn-shimmer bg-gradient-to-r from-lf-orange to-lf-orange-light hover:from-lf-orange-dark hover:to-lf-orange text-white font-bold text-lg py-4 rounded-lg transition-all duration-500 transform hover:scale-[1.02] hover:-translate-y-0.5 shadow-lg hover:shadow-xl hover:shadow-lf-orange/20 relative overflow-hidden disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none"
           >
             {status === 'submitting' ? (
               <span className="flex items-center justify-center gap-2">
