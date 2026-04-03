@@ -7,12 +7,12 @@ export const en = {
 
   // Hero
   heroTag: "YOU'RE INVITED",
-  heroTitle: 'CA Mortgage Expo VIP Afterparty',
-  heroSubtitle: 'Join Thuan Nguyen & the Loan Factory Team for an Exclusive Evening',
+  heroTitle: 'The 100 Bps Experience',
+  heroSubtitle: 'Discover the Platform, the People & the Pricing That\'s Changing the Mortgage Game',
   heroDate: 'May 7, 2026 | 3:30 PM \u2013 7:00 PM PST',
   heroVenue: 'Galp\u00e3o Gaucho Brazilian Steakhouse \u2022 Irvine, CA',
   heroCta: 'Reserve Your Free Seat',
-  heroSeats: 'Limited to 60 Guests \u2014 Free Dinner Included',
+  heroSeats: 'Limited Capacity \u2014 Free Dinner Included',
 
   // Event Details
   eventTitle: 'Event Details',
@@ -23,16 +23,36 @@ export const en = {
   eventDinnerLabel: "What's Included",
   eventDinnerValue: 'Complimentary Brazilian steakhouse dinner, premium drinks, and valet parking \u2014 all sponsored by Loan Factory lenders & vendors.',
   eventSpeakerLabel: 'Featured Speaker',
-  eventSpeakerValue: 'Thuan Nguyen, CEO of Loan Factory (NMLS #320775) \u2014 a visionary leader in fintech lending and AI-powered mortgage solutions.',
+  eventSpeakerValue: 'Thuan Nguyen, CEO of Loan Factory (NMLS #320775) \u2014 #1 Loan Officer in America (2020\u20132021), leading the #2 largest mortgage broker in the U.S.',
 
   // Why Attend
-  whyTitle: 'Why You Should Attend',
-  whyNetworkTitle: 'Network with Leaders',
-  whyNetworkDesc: 'Connect with top-producing loan officers, industry leaders, and decision-makers from across California. Build relationships that drive your business forward.',
-  whyLearnTitle: 'AI & Fintech Insights',
-  whyLearnDesc: 'Discover how AI and automation are transforming the mortgage industry. Learn about cutting-edge tools that help you close more loans, faster.',
-  whyCareerTitle: 'Career Opportunity',
-  whyCareerDesc: 'Explore what it means to work with a fintech-first broker offering 100% commission, no desk fees, 226+ lenders, and the industry\'s most advanced AI toolkit.',
+  whyTitle: 'Why You Should Be Here',
+  whyNetworkTitle: 'Meet the Team',
+  whyNetworkDesc: 'This isn\'t a sales pitch. It\'s dinner with the people who built the #2 largest mortgage broker in America. Ask anything. See if the culture fits.',
+  whyLearnTitle: 'See the Tech Stack',
+  whyLearnDesc: 'AI-powered origination, instant pricing, automated verifications, 8-day closings. We\'ll show you the tools your competitors don\'t have yet.',
+  whyCareerTitle: 'Do the Math',
+  whyCareerDesc: '100 bps better pricing. FREE credit reports and bank statements. 226+ lenders. 100% commission. Run the numbers on what that means for your business.',
+
+  // Competitive Edge (100 Bps Section)
+  edgeTitle: '100 Bps: Are You the Hunter or the Prey?',
+  edgeSubtitle: 'Loan Factory has partnered with Pylon Lending to change the math of your business.',
+  edgeQuestion1: 'What happens to your volume if your pricing is 100 bps sharper than every competitor?',
+  edgeQuestion2: 'What happens to your career if your competitors gain this 100 bps advantage?',
+  edgePricingTitle: 'Killer Pricing',
+  edgePricingDesc: '100 bps better than traditional wholesale on Conventional & Jumbo.',
+  edgeCostTitle: 'Zero Friction Costs',
+  edgeCostDesc: 'FREE credit reports, bank statements, and automated employment verification.',
+  edgeSpeedTitle: 'Close in 8 Days',
+  edgeSpeedDesc: 'Day-1 certainty with the ability to close in as little as 8 days.',
+  edgeCta: 'See It For Yourself \u2014 Reserve Your Seat',
+
+  // Organizer Reference
+  orgTitle: 'Hosted After the California Mortgage Expo',
+  orgDesc: 'The 100 Bps Experience takes place the evening of the California Mortgage Expo at the Hilton Irvine \u2014 California\'s largest event for mortgage origination professionals. Attend the expo, then join us for dinner.',
+  orgLink: 'https://www.originatorconnectnetwork.com/events/california-mortgage-expo-irvine',
+  orgLinkText: 'View Expo Details \u2192',
+  orgProducer: 'Expo produced by Originator Connect Network',
 
   // Video
   videoTitle: 'A Personal Invitation from Thuan Nguyen',
@@ -40,7 +60,7 @@ export const en = {
 
   // Form
   formTitle: 'Reserve Your Seat',
-  formSubtitle: 'Limited seats available. Fill out the form below to secure your spot at the VIP Afterparty.',
+  formSubtitle: 'Limited seats available. Fill out the form below to secure your spot at The 100 Bps Experience.',
   formName: 'Full Name',
   formEmail: 'Email Address',
   formPhone: 'Phone Number',
@@ -69,11 +89,11 @@ export const en = {
   // CTA
   ctaTitle: 'What Happens Next?',
   ctaStep1Title: 'Submit Your RSVP',
-  ctaStep1Desc: 'Fill out the form above to reserve your seat at the VIP Afterparty.',
+  ctaStep1Desc: 'Fill out the form above to reserve your seat at The 100 Bps Experience.',
   ctaStep2Title: 'Get Confirmation',
   ctaStep2Desc: 'You\'ll receive an email with event details, parking info, and what to expect.',
-  ctaStep3Title: 'Show Up & Connect',
-  ctaStep3Desc: 'Join us May 7th for dinner, drinks, and conversations that could change your career.',
+  ctaStep3Title: 'Show Up & Experience It',
+  ctaStep3Desc: 'Join us May 7th for dinner, drinks, and a firsthand look at the platform that\'s changing the game.',
   ctaExplore: 'Explore Loan Factory Careers',
   ctaExploreLink: 'https://www.loanfactory.com/loan-officer',
 

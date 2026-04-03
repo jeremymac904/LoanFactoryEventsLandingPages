@@ -32,8 +32,8 @@ export default function VideoSection({ t, language }: Props) {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: 'url(/images/group-photo.png)' }}
       />
-      {/* Dark overlay to keep text readable */}
-      <div className="absolute inset-0 bg-lf-navy/85 backdrop-blur-sm" />
+      {/* Semi-transparent overlay — lets group photo show through atmospherically */}
+      <div className="absolute inset-0 bg-lf-navy/55" />
 
       {/* Decorative */}
       <div className="absolute top-0 left-0 w-96 h-96 bg-lf-orange/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />

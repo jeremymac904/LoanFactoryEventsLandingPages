@@ -36,20 +36,38 @@
 ::-webkit-scrollbar-thumb { background: #F36F20; border-radius: 4px; }
 
 /* ========================================
-   METALLIC SILVER HEADER
+   METALLIC SILVER HEADER — PREMIUM
    ======================================== */
 .header-silver {
-  background: linear-gradient(135deg, #c0c0c0 0%, #e8e8e8 25%, #d4d4d4 50%, #b8b8b8 75%, #d0d0d0 100%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(8px);
+  background: linear-gradient(
+    180deg,
+    #e8e8e8 0%,
+    #d0d0d0 15%,
+    #b8b8b8 35%,
+    #c8c8c8 50%,
+    #d4d4d4 65%,
+    #bfbfbf 80%,
+    #cecece 100%
+  );
+  border-bottom: 1px solid rgba(255,255,255,0.5);
+  box-shadow: 0 2px 20px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.6);
   position: relative;
   overflow: hidden;
 }
 
 .header-silver-scrolled {
-  background: linear-gradient(135deg, #a8a8a8 0%, #d8d8d8 25%, #c0c0c0 50%, #a0a0a0 75%, #c0c0c0 100%);
+  background: linear-gradient(
+    180deg,
+    #d8d8d8 0%,
+    #bfbfbf 20%,
+    #a8a8a8 40%,
+    #b8b8b8 55%,
+    #c8c8c8 70%,
+    #b0b0b0 85%,
+    #c0c0c0 100%
+  );
   border-bottom: 2px solid #F36F20;
-  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.4);
   position: relative;
   overflow: hidden;
 }
@@ -59,30 +77,90 @@
   position: absolute;
   top: 0;
   left: -100%;
-  width: 60%;
+  width: 40%;
   height: 100%;
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(255, 255, 255, 0.1) 25%,
-    rgba(255, 255, 255, 0.4) 50%,
-    rgba(255, 255, 255, 0.1) 75%,
+    rgba(255,255,255,0.05) 20%,
+    rgba(255,255,255,0.5) 50%,
+    rgba(255,255,255,0.05) 80%,
     transparent 100%
   );
-  transform: skewX(-20deg);
-  animation: headerShine 4s ease-in-out infinite;
+  transform: skewX(-25deg);
+  animation: headerShine 5s ease-in-out infinite;
   pointer-events: none;
 }
 
 @keyframes headerShine {
-  0% { left: -100%; }
-  40% { left: 150%; }
-  100% { left: 150%; }
+  0% { left: -100%; opacity: 0; }
+  5% { opacity: 1; }
+  45% { left: 160%; opacity: 1; }
+  50% { left: 160%; opacity: 0; }
+  100% { left: 160%; opacity: 0; }
 }
 
 /* ========================================
-   PAGE LOAD SHINE SWEEP
+   CINEMATIC PAGE OPENING SEQUENCE
    ======================================== */
+.page-cinema-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  animation: cinemaFadeOut 0.6s ease-in 2.2s forwards;
+}
+
+/* Black screen opening */
+.page-cinema-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #000000;
+  animation: cinemaBlackFade 1.0s ease-out 0.2s forwards;
+}
+
+/* Dramatic horizontal light bars */
+.page-cinema-overlay::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(243,111,32,0.15) 20%,
+    rgba(255,255,255,0.4) 48%,
+    rgba(255,255,255,0.6) 50%,
+    rgba(255,255,255,0.4) 52%,
+    rgba(243,111,32,0.15) 80%,
+    transparent 100%
+  );
+  animation: cinemaLightSwipe 0.8s ease-in-out 0.8s forwards;
+}
+
+@keyframes cinemaBlackFade {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes cinemaLightSwipe {
+  0% { left: -200%; opacity: 0; }
+  10% { opacity: 1; }
+  100% { left: 100%; opacity: 0; }
+}
+
+@keyframes cinemaFadeOut {
+  0% { opacity: 1; visibility: visible; }
+  100% { opacity: 0; visibility: hidden; }
+}
+
+/* Keep the old class working but now with cinematic behavior */
 .page-shine-overlay {
   position: fixed;
   top: 0;
@@ -91,40 +169,35 @@
   height: 100%;
   pointer-events: none;
   z-index: 9999;
-  overflow: hidden;
-  animation: pageShineFade 2.5s ease-out forwards;
+  animation: cinemaFadeOut 0.6s ease-in 2.2s forwards;
+}
+
+.page-shine-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #000000;
+  animation: cinemaBlackFade 1.0s ease-out 0.2s forwards;
 }
 
 .page-shine-overlay::after {
   content: '';
   position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 50%;
-  height: 200%;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(255, 255, 255, 0.03) 20%,
-    rgba(243, 111, 32, 0.08) 40%,
-    rgba(255, 255, 255, 0.15) 50%,
-    rgba(243, 111, 32, 0.08) 60%,
-    rgba(255, 255, 255, 0.03) 80%,
+    rgba(243,111,32,0.15) 20%,
+    rgba(255,255,255,0.4) 48%,
+    rgba(255,255,255,0.6) 50%,
+    rgba(255,255,255,0.4) 52%,
+    rgba(243,111,32,0.15) 80%,
     transparent 100%
   );
-  transform: skewX(-15deg);
-  animation: pageShineSwipe 2s ease-in-out forwards;
-}
-
-@keyframes pageShineSwipe {
-  0% { left: -50%; }
-  100% { left: 150%; }
-}
-
-@keyframes pageShineFade {
-  0% { opacity: 1; }
-  80% { opacity: 1; }
-  100% { opacity: 0; visibility: hidden; }
+  animation: cinemaLightSwipe 0.8s ease-in-out 0.8s forwards;
 }
 
 /* ========================================
@@ -173,3 +246,88 @@
 .animate-delay-200 { animation-delay: 0.2s; }
 .animate-delay-300 { animation-delay: 0.3s; }
 .animate-delay-400 { animation-delay: 0.4s; }
+
+/* ========================================
+   LOGO BLOCKBUSTER ANIMATION
+   ======================================== */
+.logo-blockbuster-reveal {
+  animation: logoBlockbusterReveal 1.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes logoBlockbusterReveal {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) rotateY(90deg);
+    filter: brightness(3) blur(4px);
+  }
+  30% {
+    opacity: 1;
+    transform: scale(1.15) rotateY(-5deg);
+    filter: brightness(1.8) blur(0px) drop-shadow(0 0 20px rgba(243,111,32,0.8));
+  }
+  60% {
+    transform: scale(0.95) rotateY(2deg);
+    filter: brightness(1.2) drop-shadow(0 0 10px rgba(243,111,32,0.5));
+  }
+  80% {
+    transform: scale(1.02) rotateY(0deg);
+    filter: brightness(1.05) drop-shadow(0 0 6px rgba(243,111,32,0.3));
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotateY(0deg);
+    filter: brightness(1) drop-shadow(0 0 3px rgba(243,111,32,0.2));
+  }
+}
+
+@keyframes gearSpinIn {
+  0% {
+    opacity: 0;
+    transform: rotate(-360deg) scale(0.1);
+    filter: drop-shadow(0 0 0px #F36F20);
+  }
+  60% {
+    opacity: 1;
+    transform: rotate(45deg) scale(1.2);
+    filter: drop-shadow(0 0 8px #F36F20);
+  }
+  80% {
+    transform: rotate(-10deg) scale(0.95);
+    filter: drop-shadow(0 0 12px #F36F20);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+    filter: drop-shadow(0 0 4px rgba(243,111,32,0.6));
+  }
+}
+
+@keyframes gearPulse {
+  0% { filter: drop-shadow(0 0 4px rgba(243,111,32,0.6)); }
+  50% { filter: drop-shadow(0 0 16px rgba(243,111,32,0.9)) drop-shadow(0 0 32px rgba(243,111,32,0.4)); }
+  100% { filter: drop-shadow(0 0 4px rgba(243,111,32,0.3)); }
+}
+
+@keyframes letterStampIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-8px) scaleY(1.3);
+    filter: blur(2px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(2px) scaleY(0.95);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scaleY(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes logoGlow {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}

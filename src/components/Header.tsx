@@ -33,7 +33,7 @@ export default function Header({ t, language, onLanguageChange }: Props) {
             <img
               src="/loanfactory_logo_transparent.png"
               alt="Loan Factory"
-              className="h-9 sm:h-10 w-auto transition-transform duration-300 group-hover:scale-105 drop-shadow-md"
+              className="h-9 sm:h-10 w-auto transition-transform duration-300 group-hover:scale-105 drop-shadow-md logo-blockbuster-reveal"
             />
           </a>
 

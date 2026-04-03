@@ -3,6 +3,8 @@ import Header from './components/Header'
 import HeroSection from './components/HeroSection'
 import EventDetailsCards from './components/EventDetailsCards'
 import WhyAttendSection from './components/WhyAttendSection'
+import CompetitiveEdgeSection from './components/CompetitiveEdgeSection'
+import OrganizerSection from './components/OrganizerSection'
 import VideoSection from './components/VideoSection'
 import FormSection from './components/FormSection'
 import CTASection from './components/CTASection'
@@ -20,6 +22,8 @@ export default function App() {
         <HeroSection t={t} />
         <EventDetailsCards t={t} />
         <WhyAttendSection t={t} />
+        <CompetitiveEdgeSection t={t} />
+        <OrganizerSection t={t} />
         <VideoSection t={t} language={language} />
         <FormSection t={t} language={language} />
         <CTASection t={t} />
